@@ -28,4 +28,4 @@ void rev_string(char *s)
 		end--;
 	}
 	end[len + 1] = '\0';
-}
+}}
