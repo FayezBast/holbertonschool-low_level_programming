@@ -1,38 +1,62 @@
 #include "main.h"
-
 /**
- * cap_string - Capitalizes all words in a string.
- * @str: The input string.
- *
- * Return: A pointer to the modified string.
+ *_strlen - reset number
+ *Description: This function return a length for some string
+ *@s: pointer char
+ *Return: int length
  */
-char *cap_string(char *str)
+
+int _strlen(char *s)
 {
-    int i = 0;
-    int is_separator = 1;
+	int len = 0;
 
-    /* List of word separators */
-    char separators[] = " \t\n,;.!?\"(){}";
+	while (*s++)
+	{
+		len++;
+	}
+	return (len);
+}
+/**
+ *cap_string - changes all lowercase letters
+ *@s1: pointer parameter"
+ *Description: changes all lowercase letters
+ *Return: return pointer
+ */
+char *cap_string(char *s1)
+{
+	int i, j;
 
-    while (str[i] != '\0')
-    {
-        /* Check if the current character is a separator */
-        if (strchr(separators, str[i]))
-        {
-            is_separator = 1; /* Set flag to capitalize next character */
-        }
-        else if (is_separator && str[i] >= 'a' && str[i] <= 'z')
-        {
-            /* Capitalize the character if it's lowercase */
-            str[i] -= ('a' - 'A');
-            is_separator = 0; /* Reset the flag */
-        }
-        else
-        {
-            is_separator = 0; /* Reset flag for non-separator */
-        }
-        i++;
-    }
-
-    return str;
+	for (i = 0; i < _strlen(s1) - 1; i++)
+	{
+		if (
+			s1[i] == ' ' ||
+			s1[i] == '\t' ||
+			s1[i] == '\n' ||
+			s1[i] == ',' ||
+			s1[i] == ';' ||
+			s1[i] == '.' ||
+			s1[i] == '!' ||
+			s1[i] == '?' ||
+			s1[i] == '"' ||
+			s1[i] == '(' ||
+			s1[i] == ')' ||
+			s1[i] == '{' ||
+			s1[i] == '}' ||
+			i == 0
+		)
+		{
+			for (j = 'a'; j <= 'z'; j++)
+			{
+				if (s1[i + 1] == j && i != 0)
+				{
+					s1[i + 1] = j - 32;
+				} else if (s1[i] == j && i == 0)
+				{
+					s1[i] = j - 32;
+				}
+			}
+		}
+	}
+	return (s1);
+}
 }
