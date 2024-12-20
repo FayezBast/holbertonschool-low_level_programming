@@ -1,23 +1,36 @@
 #include "main.h"
-
 /**
- * puts2 - Prints every other character of a string, 
- *         starting with the first character,
- *         followed by a new line.
- * @str: Pointer to the input string.
- *
- * Return: void
+ *_strlen - reset number
+ *Description: This function return a length for some string
+ *@s: pointer char
+ *Return: int length
  */
 
-void puts2(char *str)
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s++)
+	{
+		len++;
+	}
+	return (len);
+}
+/**
+ *puts2 - check the code for Holberton School students.
+ *@s: pointer parameter
+ *Description: This function prints pair number
+ *Return: Always Nothing.
+ */
+void puts2(char *s)
 {
 	int i;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0 ; i < _strlen(s); i++)
 	{
 		if (i % 2 == 0)
 		{
-			_putchar(str[i]);
+			_putchar(s[i]);
 		}
 	}
 	_putchar('\n');
