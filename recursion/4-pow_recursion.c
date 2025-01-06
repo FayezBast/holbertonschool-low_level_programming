@@ -17,4 +17,6 @@ int  _pow_factorial(int x, int y)
 	{
 		return(1);
 	return (x * _pow_recursion(x, y - 1));
+
+}
 }
