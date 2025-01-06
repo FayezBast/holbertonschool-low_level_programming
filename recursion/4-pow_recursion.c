@@ -7,7 +7,7 @@
  *
  * Return: The value of a given number raised to another
  */
-int  _pow_factorial(int x, int y)
+int  _pow_recursion(int x, int y)
 {
 	if (y < 0)
 	{
