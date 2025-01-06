@@ -7,12 +7,12 @@
  *
  * Return: The value of a given number raised to another
  */
-int  _pow_factorial(int n, int y)
+int  _pow_factorial(int x, int y)
 {
 	if (y < 0)
 	{
 		return (-1);
 	}
 	
-	return ( _pow_factorail(x^y));
+	return (x^y);
 }
