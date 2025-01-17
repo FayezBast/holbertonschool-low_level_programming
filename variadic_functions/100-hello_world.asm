@@ -1,17 +1,19 @@
 	global main
 
 	section .text
+
 main:
-	mov     rax, 1
-	mov     rdi, 1
-	mov     rsi, msg
-	mov     rdx, 17
-	syscall
+	mov rax, 1        	; write(
+	mov rdi, 1        	;   STDOUT_FILENO,
+	mov rsi, msg      	;   "Hello, World\n",
+	mov rdx, msglen   	;   sizeof("Hello, World\n")
+	syscall           	; );
 
-	mov     rax,60
-	xor     rdi, rdi
-	syscall
+	mov rax, 60       	; exit(
+	mov rdi, 0        	;   EXIT_SUCCESS
+	syscall           	; );
 
-	section .data
-msg:
-	db   "Hello, World",10
+	section .rodata
+msg:	 db "Hello, World", 10
+msglen:	 equ $ - msg
+
